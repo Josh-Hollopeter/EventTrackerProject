@@ -1,6 +1,7 @@
 package com.skilldistillery.eventtracker.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,21 @@ public class PlaygroundServiceImpl implements PlaygroundService {
 		playRepo.saveAndFlush(playground);
 		return playground;
 	}
+
+	@Override
+	public boolean delete(Integer pid) {
+		Playground playground = null;
+		Optional <Playground> playgroundOpt = playRepo.findById(pid);
+		if(playgroundOpt.isPresent()) {
+			playground = playgroundOpt.get();
+			playRepo.delete(playground);
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
 	
 	
 	

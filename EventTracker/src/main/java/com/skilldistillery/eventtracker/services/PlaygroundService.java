@@ -9,5 +9,7 @@ public interface PlaygroundService {
 	List <Playground> getAll();
 	
 	Playground create(Playground playground);
+	
+	boolean delete(Integer id);
 
 }

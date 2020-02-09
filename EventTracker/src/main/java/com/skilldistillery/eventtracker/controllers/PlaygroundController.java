@@ -5,7 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +31,7 @@ public class PlaygroundController {
 	}
 	
 	@PostMapping("playgrounds")
-	public Playground createComment(@RequestBody Playground playground, HttpServletResponse response ) {
+	public Playground create(@RequestBody Playground playground, HttpServletResponse response ) {
 		System.err.println(playground);
 		if(playServ.create(playground) != null) {
 			response.setStatus(201);
@@ -38,6 +40,17 @@ public class PlaygroundController {
 		response.setStatus(400);
 		return null;
 		
+	}
+	
+	@DeleteMapping("playgrounds/{pid}")
+	public void delete(@PathVariable Integer pid, HttpServletResponse response) {
+		System.err.println("****************" + pid);
+		if(playServ.delete(pid)) {
+			response.setStatus(204);
+			
+		}else {
+			response.setStatus(400);
+		}
 	}
 
 }
