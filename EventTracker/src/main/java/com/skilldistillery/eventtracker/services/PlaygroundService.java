@@ -7,5 +7,7 @@ import com.skilldistillery.eventtracker.entities.Playground;
 public interface PlaygroundService {
 	
 	List <Playground> getAll();
+	
+	Playground create(Playground playground);
 
 }

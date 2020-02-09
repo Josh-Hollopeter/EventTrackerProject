@@ -24,7 +24,7 @@ public class Playground {
 	
 	private String description;
 	
-	private String condition;
+	private String atmosphere;
 	
 	private String image;
 
@@ -76,12 +76,14 @@ public class Playground {
 		this.description = description;
 	}
 
-	public String getCondition() {
-		return condition;
+	
+
+	public String getAtmosphere() {
+		return atmosphere;
 	}
 
-	public void setCondition(String condition) {
-		this.condition = condition;
+	public void setAtmosphere(String atmosphere) {
+		this.atmosphere = atmosphere;
 	}
 
 	public String getImage() {
@@ -95,7 +97,7 @@ public class Playground {
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", name=" + name + ", visited=" + visited + ", location=" + location + ", rating="
-				+ rating + ", description=" + description + ", condition=" + condition + ", image=" + image + "]";
+				+ rating + ", description=" + description + ", atmosphere=" + atmosphere + ", image=" + image + "]";
 	}
 
 	@Override

@@ -19,6 +19,12 @@ public class PlaygroundServiceImpl implements PlaygroundService {
 		
 		return playRepo.findAll();
 	}
+
+	@Override
+	public Playground create(Playground playground) {
+		playRepo.saveAndFlush(playground);
+		return playground;
+	}
 	
 	
 	

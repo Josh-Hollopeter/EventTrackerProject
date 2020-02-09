@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `Event`.`playground` (
   `location` VARCHAR(45) NULL,
   `rating` VARCHAR(45) NULL,
   `description` VARCHAR(600) NULL,
-  `condition` VARCHAR(45) NULL,
+  `atmosphere` VARCHAR(45) NULL,
   `image` VARCHAR(4500) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
@@ -61,7 +61,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Event`;
-INSERT INTO `Event`.`playground` (`id`, `name`, `visited`, `location`, `rating`, `description`, `condition`, `image`) VALUES (1, 'playground', 1, 'here', '5', 'greater', 'great', 'none');
+INSERT INTO `Event`.`playground` (`id`, `name`, `visited`, `location`, `rating`, `description`, `atmosphere`, `image`) VALUES (1, 'playground', 1, 'here', '5', 'greater', 'great', 'none');
 
 COMMIT;
 
