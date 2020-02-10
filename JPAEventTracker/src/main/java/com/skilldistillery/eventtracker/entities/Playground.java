@@ -124,6 +124,22 @@ public class Playground {
 			return false;
 		return true;
 	}
+
+	public Playground(String name, Boolean visited, String location, String rating, String description,
+			String atmosphere, String image) {
+		super();
+		this.name = name;
+		this.visited = visited;
+		this.location = location;
+		this.rating = rating;
+		this.description = description;
+		this.atmosphere = atmosphere;
+		this.image = image;
+	}
+
+	public Playground() {
+		super();
+	}
 	
 	
 }

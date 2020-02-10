@@ -11,5 +11,7 @@ public interface PlaygroundService {
 	Playground create(Playground playground);
 	
 	boolean delete(Integer id);
+	
+	Playground update(Integer id, Playground playground);
 
 }

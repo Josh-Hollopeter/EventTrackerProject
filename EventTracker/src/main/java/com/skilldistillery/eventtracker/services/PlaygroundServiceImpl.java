@@ -39,6 +39,24 @@ public class PlaygroundServiceImpl implements PlaygroundService {
 		
 		return false;
 	}
+
+	@Override
+	public Playground update(Integer pid, Playground newPlayground) {
+		Optional <Playground> playgroundOpt = playRepo.findById(pid);
+		Playground playgroundToUpdate = null;
+		if(playgroundOpt.isPresent()) {
+			playgroundToUpdate = playgroundOpt.get();
+			newPlayground.setId(playgroundToUpdate.getId());
+			playgroundToUpdate = newPlayground;
+			playRepo.saveAndFlush(playgroundToUpdate);
+		}else {
+			return null;
+		}
+		
+		return playgroundToUpdate;
+	}
+	
+	
 	
 	
 	
