@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "11b56d06-c012-43d8-9f5c-afc771e77561",
+		"name": "EventTracker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all playground",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Returns a List of all playgrounds in the database"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Playground",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n        \"name\": \"playground\",\n        \"visited\": true,\n        \"location\": \"here\",\n        \"rating\": \"5\",\n        \"description\": \"greater\",\n        \"condition\": \"great\",\n        \"image\": \"none\"\n    }\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/api/playgrounds",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"playgrounds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Playground",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/api/playgrounds{2}",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"playgrounds{2}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update playground",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"name\": \"plaugeground\",\n        \"visited\": true,\n        \"location\": \"here\",\n        \"rating\": \"5\",\n        \"description\": \"greater\",\n        \"atmosphere\": \"great\"\n       \n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8083/api/playgrounds/3",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"playgrounds",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
