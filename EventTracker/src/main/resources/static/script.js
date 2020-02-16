@@ -5,16 +5,10 @@
 var button = document.getElementById('create');
 function init() {
 
-	console.log("here in init")
-
 	getPlaygrounds();
 
 	button.addEventListener('click', createListener);
 
-		console.log("here in init 3")
-	
-	
-	console.log("here in init 2")
 }
 
 var createListener =function(e) {
@@ -34,7 +28,7 @@ window.addEventListener('load', function() {
 getPlaygrounds = function() {
 	let xhr = new XMLHttpRequest();
 	xhr.open('GET', 'api/playgrounds', true);
-	console.log("in get playgrounds")
+	
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4 && xhr.status < 400) {
 			var data = JSON.parse(xhr.responseText);
@@ -47,7 +41,7 @@ getPlaygrounds = function() {
 
 		if (xhr.readyState === 4 && xhr.status >= 400) {
 			console.error(xhr.status + ': ' + xhr.responseText);
-			console.log("in error")
+			console.log("in getPlaygrounds error")
 		}
 	};
 	xhr.send(null);
@@ -55,14 +49,12 @@ getPlaygrounds = function() {
 
  // Create Method
 var createPlayground = function() {
-	console.log("in create");
 	let xhr = new XMLHttpRequest();
 	xhr.open('POST', 'api/playgrounds', true);
 
 	xhr.setRequestHeader("Content-type", "application/json"); 
 
 	xhr.onreadystatechange = function() {
-		console.log("in create 3");
 		if (xhr.readyState === 4) {
 			if (xhr.status == 200 || xhr.status == 201) { 
 				var data = JSON.parse(xhr.responseText);
@@ -75,10 +67,7 @@ var createPlayground = function() {
 
 	};
 	let form = document.createPlayground;
-	console.log(form.name.value);
-	console.log(form.visited.value);
 
-	console.log(form.description.value);
 	let playground = {
 		name : form.name.value,
 		visited : form.visited.value,
@@ -90,10 +79,8 @@ var createPlayground = function() {
 	// image : ""
 		
 	};
-	console.log("here in create");
 	let userObjectJson = JSON.stringify(playground);
 	xhr.send(userObjectJson)
-	console.log("here in end of create");
 	init();
 	location.reload();
 	return false;
@@ -133,10 +120,7 @@ function updatePlaygroundPUT(id){
 		}
 	};
 	let form = document.createPlayground;
-	console.log(form.name.value);
-	console.log(form.visited.value);
 
-	console.log(form.description.value);
 	let playground = {
 		name : form.name.value,
 		visited : form.visited.value,
@@ -148,16 +132,13 @@ function updatePlaygroundPUT(id){
 	// image : ""
 		
 	};
-	console.log("here in update");
 	let userObjectJson = JSON.stringify(playground);
 	xhr.send(userObjectJson)
-	console.log("here in end of update");
 	init();
 }
 
 // turns objects from js object array(data) into a viewable html table
 displayTables = function(data) {
-	console.log("here in display");
 	let tableRemove;
 	if(tableRemove = document.getElementById("allPlaygroundTable")){
 	tableRemove.parentNode.removeChild(tableRemove)
@@ -188,12 +169,9 @@ displayTables = function(data) {
 
 	var tableMaker = function(values, row) {
 		
-
 		for (var i = 0; i < values.length; i++) {
 			let td = document.createElement('td');
-
 			td.textContent = values[i];
-			console.log(values[i])
 			row.appendChild(td);
 
 		}
@@ -225,7 +203,6 @@ displayTables = function(data) {
 		formElements.visited.value = values[2];
 		formElements.description.value = values[5];
 		formElements.location.value = values[3];
-		
 		
 	}
 // Iterates through js object array from get method
