@@ -92,16 +92,17 @@ function deletePlayground(id) {
 	xhr.setRequestHeader("Content-type", "application/json");
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4 && xhr.status < 400) {
-			init();
-			
+			console.log("here");
 		}
 		if (xhr.readyState === 4 && xhr.status >= 400) {
 			console.error(xhr.status + ': ' + xhr.responseText);
 			
 		}
 	};
-
+	init();
+	location.reload();
 	xhr.send(null);
+	return false;
 }
 // UPDATE METHOD
 function updatePlaygroundPUT(id){
@@ -183,14 +184,14 @@ displayTables = function(data) {
 		tableRemove.parentNode.removeChild(tableRemove)
 		}
 
-		console.log("inupdate" + values[2]);
 		let formElements = document.getElementById("createPlayground");
 		let updateClick = document.getElementById("create");
 		let deleteClick = document.createElement('button');
 		deleteClick.value = values[0];
 		deleteClick.innerText = 'Delete';
 		deleteClick.addEventListener("click", function() {
-			deletePlayground(deleteClick.value);
+			console.log(values[0]);
+			deletePlayground(values[0]);
 		});
 		formElements.appendChild(deleteClick);
 		updateClick.innerText = 'Update';
